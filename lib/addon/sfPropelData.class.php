@@ -195,7 +195,7 @@ class sfPropelData extends sfData
           // foreign key?
           if ($isARealColumn)
           {
-            if ($column->isForeignKey() && null !== $value)
+            if ($column->isForeignKey() && null !== $value && !is_numeric($value))
             {
               $relatedTable = $this->dbMap->getTable($column->getRelatedTableName());
               if (!isset($this->object_references[$relatedTable->getPhpName().'_'.$value]))
